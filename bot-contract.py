@@ -31,11 +31,23 @@ print(web3.fromWei(balanceOf, 'ether'))
 
 send = 98989898
 amount = web3.toWei(send, 'ether')
-
+# necessário para evitar erro "nonce too low"
+nonce = web3.eth.getTransactionCount(my_address)
 
 while(True):
-    nonce = web3.eth.getTransactionCount(my_address)
-    print(nonce)
+    """Quando executa transações muito rápido, é necessário salvar o nonce localmente
+    pois a demora da rede pode causar o erro "nonce too low", visto que sempre que você
+    faz uma transação na rede, o nonce deve aumentar em 1, porém a chamada da função
+    'web3.eth.getTransactionCount(my_address)' depende da rede, caso a rede demore mais
+    que 5 segundos (sleep(5)), o nonce da próxima transação atual será o mesmo da última
+    transação executada pela carteira.
+    EX: Nonce da minha carteira é 5, executo uma transação... assim que a rede confirmar
+    esta transação, o nonce passará a ser 6. 
+    Porém, se eu tentar fazer uma outra transação antes da rede confirmar a transação anterior
+    vou me deparar com o erro "nonce too low", pois a rede ainda não incrementou meu nonce.
+    Para resolver este caso, nós aumentamos o nonce localmente, assim não dependemos da rede.
+    """
+    print("Nonce: {}".format(nonce))
 
     token_tx = contract.functions.transfer(denis_address, amount).buildTransaction({
         'chainId': 56, 'gas':100000, 'gasPrice': web3.toWei('10','gwei'), 'nonce' : nonce})
@@ -43,4 +55,6 @@ while(True):
     web3.eth.sendRawTransaction(sign_txn.rawTransaction)
 
     print(f"[-]Transacao foi feita para {denis_address}")
+    # nonce foi incrementado localmente +1 para evitar erro "nonce too low" devido a demora da rede.
+    nonce+=1
     sleep(5) 
