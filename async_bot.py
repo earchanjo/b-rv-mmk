@@ -11,22 +11,23 @@ rpc_url = 'https://data-seed-prebsc-1-s1.binance.org:8545/'
 rpc_url_real = 'https://bsc-dataseed.binance.org/'
 
 #endereco do contrato da moeda alvo
-contract_address_Lazy = '0xF718BDAE5f1630eEfbD454a4c7aeaCA1D7C85Bdc'
+contract_address_Lazy = 'kkkkkkkkkkkkkkkkkkk'
 
 #chaves do bot
-private_keyBot = 'fe766585aa66ca3a8b3eaeba7ba040b3152616c7c5ff54e6008b81a0c94aeacc'
-pubkey_contaBot = '0x8D873Af746d58b3aE24E5D89228F2c297593c9E4'
+private_keyBot = 'aaaaaaaaaaaaaa'
+pubkey_contaBot = 'bbbbbbbbbbbbbbbbbbbbbbbb'
 address_bot = Web3.toChecksumAddress(pubkey_contaBot)
 
 #chaves da scam
-private_key_Scam = '59ed6e52a3fa8d021ed36b7fbf8ee7d50717629e682140ef8dbbd8ae11f65a38'
-pubkey_contaScam = '0x6F1A1F5cfFed7f915e29E913e481a034BcA32f52'
+private_key_Scam = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+pubkey_contaScam = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 address_scam = Web3.toChecksumAddress(pubkey_contaScam)
 0x308dC6D4671877ff4b4e5230121BBAF1c9ab03FA
+
 #conta laranja
-pubkey_oran = '0xa576513b13A07B600017A36D516fFFa4FA746d35'
+pubkey_oran = 'bbbbbbbbbbbbbbbbbbbbb'
 address_oran = Web3.toChecksumAddress(pubkey_oran)
-private_key_laranja = 'a633779a203a94feb3c150634c8a564ca5b27bfa5cf94a72f3a60572bb6cedb1'
+private_key_laranja = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 
 #conectando no
 while(True):

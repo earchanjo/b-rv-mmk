@@ -8,80 +8,32 @@ from time import sleep
 
 
 
-'''
-Fala, Thauan. Sou o programador que entrou na equipe do tom.
-Nunca mexi com web3 ou coisa parecida, então ja deixo minhas desculpas pelo "go horse" em partes do codigo :(
 
-
-Eu fiz o bot para tirar a quantia exata (desde que seja possivel com o minimo de gas) da conta, dessa quantia tirada 5 gwei de gas e puxamos
-o restante para uma conta laranja.
-
-Como voce tinha visto no código anterior ele funcionava(ainda funciona) sequencialmente em um unico loop saindo as transações em seguida.
-
-Coloquei condicoes de "se conta tiver mais que 0.0001 faça transacao", para garantir que ele só tiraria quando tivesse algo. (menos que 0.0001 nao tem fracao pra gas).
-
-porém estamos com o seguinte problema:
-
-1 - Dado que ele já esteja rodando, ele nao tira todo o saldo. Tira apenas uma parte.
-1.1 - Ele só tira tudo na primeira run do código (assim que chama .py)
-
-
-Com o audio que voce enviou no sabado, eu tive a ideia de fazer a transacao dar um get_transaction e wait_for_transaction_receipt para pegar
-o status da transacao e o nonce. Com isso eu alteraria a variavel status e pegaria o nonce da transacao que aconteceu com sucesso. Assim evitaria de ficar incrementando
-indefinidamente o nonce mesmo que nao tenha sido feita com sucesso.
-
-Entretanto nao funcionou, se comportou da mesma maneira....
-
-Aí estou com uma intuição que isso deva ser feito com async function, para fazer a transacao e aguardar que a corotina espera_resposta retorne com os valores de status e nonce. 
-Porém nao tenho muita experiencia com concorrencia e paralelismo, e estou vendo ainda como implementar
-
-tentei fazer de forma padrao mas, como pode ver ao rodar esse codigo, nao funcionou...
-
-
-A funcao revenge é o bot da forma inicial, pode chamar ela que ele vai se comportar da maneira que especifiquei
-
-Já deixo meu agradecimento pela ajuda anterior e dessa.
-
-
-
-
-
-
-
-'''
 ######### BNB REAL ##################
-"""
 
-my_address = '0x8D873Af746d58b3aE24E5D89228F2c297593c9E4'
-address_scam = '0x308dC6D4671877ff4b4e5230121BBAF1c9ab03FA'
-private_key_denis = 'cfdbccf01dcd5e8d70fb82d49770547276734f7574f427c23dca71c49dc619aa'
-private_key_my = 'fe766585aa66ca3a8b3eaeba7ba040b3152616c7c5ff54e6008b81a0c94aeacc'
-##################################################
-"""
 
 #headers
 rpc_url = 'https://data-seed-prebsc-1-s1.binance.org:8545/'
 rpc_url_real = 'https://bsc-dataseed.binance.org/'
 
-#endereco do contrato da moeda alvo
-contract_address_Lazy = '0xF718BDAE5f1630eEfbD454a4c7aeaCA1D7C85Bdc'
+##endereco do contrato da moeda alvo
+contract_address_Lazy = 'kkkkkkkkkkkkkkkkkkk'
 
 #chaves do bot
-private_keyBot = 'fe766585aa66ca3a8b3eaeba7ba040b3152616c7c5ff54e6008b81a0c94aeacc'
-pubkey_contaBot = '0x8D873Af746d58b3aE24E5D89228F2c297593c9E4'
+private_keyBot = 'aaaaaaaaaaaaaa'
+pubkey_contaBot = 'bbbbbbbbbbbbbbbbbbbbbbbb'
 address_bot = Web3.toChecksumAddress(pubkey_contaBot)
 
 #chaves da scam
-private_key_Scam = '59ed6e52a3fa8d021ed36b7fbf8ee7d50717629e682140ef8dbbd8ae11f65a38'
-pubkey_contaScam = '0x6F1A1F5cfFed7f915e29E913e481a034BcA32f52'
+private_key_Scam = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
+pubkey_contaScam = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 address_scam = Web3.toChecksumAddress(pubkey_contaScam)
 0x308dC6D4671877ff4b4e5230121BBAF1c9ab03FA
-#conta laranja
-pubkey_oran = '0xa576513b13A07B600017A36D516fFFa4FA746d35'
-address_oran = Web3.toChecksumAddress(pubkey_oran)
-private_key_laranja = 'a633779a203a94feb3c150634c8a564ca5b27bfa5cf94a72f3a60572bb6cedb1'
-#iniciando conexao
 
+#conta laranja
+pubkey_oran = 'bbbbbbbbbbbbbbbbbbbbb'
+address_oran = Web3.toChecksumAddress(pubkey_oran)
+private_key_laranja = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'
 #w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 
 #conectando no
